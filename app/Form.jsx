@@ -6,9 +6,9 @@ import Image from "next/image";
 import styles from "./page.module.css";
 const env = process.env.NEXTAUTH_SECRET;
 
-export const Form = () => {
+export const Form = ({ session }) => {
   const createSession = async () => {
-    const response = await signIn();
+    const response = await signIn("credentials");
     alert(env);
   };
   return (
@@ -41,6 +41,7 @@ export const Form = () => {
         <button className={styles.padding} onClick={createSession}>
           Sign IN
         </button>
+        <pre>{JSON.stringify(session, null, 2)}</pre>
       </main>
     </>
   );

@@ -1,9 +1,14 @@
 import { Form } from "./Form";
 
-export default function Home() {
+import { AuthOptions } from "next-auth";
+import { getServerSession } from "next-auth/next";
+
+export default async function Home() {
+  let session = await getServerSession(AuthOptions);
+  session = { name: "satyam" };
   return (
     <>
-      <Form />
+      <Form session={session} />
     </>
   );
 }
