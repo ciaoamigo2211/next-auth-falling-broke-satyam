@@ -4,8 +4,9 @@ import { AuthOptions } from "next-auth";
 import { getServerSession } from "next-auth/next";
 
 export default async function Home() {
-  let session = await getServerSession(AuthOptions);
-  session = { name: "satyam" };
+  const session = await getServerSession(AuthOptions);
+  console.log(session);
+
   return (
     <>
       <Form session={session} />
