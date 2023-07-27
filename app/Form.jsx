@@ -1,6 +1,6 @@
 "use client";
 
-import { signIn } from "next-auth/react";
+import { signIn, signOut } from "next-auth/react";
 
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -40,10 +40,14 @@ export const Form = (session) => {
           <button className={styles.padding} onClick={createSession}>
             Sign IN
           </button>
+          <br />
           <span style={{ color: "black" }}>
             height
             <p>{JSON.stringify(session, null, 2)}</p>
           </span>
+          <button className={styles.padding} onClick={() => signOut()}>
+            Log out
+          </button>
         </div>
       </main>
     </>
