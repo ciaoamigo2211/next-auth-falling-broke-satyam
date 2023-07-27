@@ -7,10 +7,8 @@ import styles from "./page.module.css";
 const env = process.env.NEXTAUTH_SECRET;
 
 export const Form = (session) => {
-  alert(JSON.stringify(session));
   const createSession = async () => {
     const response = await signIn("credentials");
-    alert(env);
   };
   return (
     <>
